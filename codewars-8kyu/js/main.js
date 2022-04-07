@@ -33,3 +33,128 @@ function findMultiples(int,limit){
       
     return result
   }
+
+
+// Take an integer n (n >= 0) and a digit d (0 <= d <= 9) as an integer.
+
+// Square all numbers k (0 <= k <= n) between 0 and n.
+
+// Count the numbers of digits d used in the writing of all the k**2.
+
+// Call nb_dig (or nbDig or ...) the function taking n and d as parameters and returning this count.
+
+// Examples:
+// n = 10, d = 1 
+// the k*k are 0, 1, 4, 9, 16, 25, 36, 49, 64, 81, 100
+// We are using the digit 1 in: 1, 16, 81, 100. The total count is then 4.
+
+// nb_dig(25, 1) returns 11 since
+// the k*k that contain the digit 1 are:
+// 1, 16, 81, 100, 121, 144, 169, 196, 361, 441.
+// So there are 11 digits 1 for the squares of numbers between 0 and 25.
+// Note that 121 has twice the digit 1.
+
+
+// function nbDig(n, d) {
+//   if (n>=0){
+//     let k = [];
+//     for (i = 0; i <= n; i++){
+//        let arr = k.push([i**2]);
+//        console.log(k);
+//     }
+//   }
+// }
+
+// nbDig(10,1)
+
+// INCOMPLETE!!!!
+
+// Take an array and remove every second element from the array. Always keep the first element and 
+// start removing with the next element.
+
+// Example:
+
+// ["Keep", "Remove", "Keep", "Remove", "Keep", ...] --> ["Keep", "Keep", "Keep", ...]
+
+// None of the arrays will be empty, so you don't have to worry about that!
+
+function removeEveryOther(arr){
+  // YOU WANT TO RETURN A FILTERED ARRAY, THE FILTER PROPERTIES ARE ELEEM, AND INDEX/
+  return arr.filter(function(elem,index){
+    // THE FILTER CONDITIONS ARE THE INDEX MODOLUS HAVE TO EQUAL ZERO <--- NO REMAINDER
+    return index%2 === 0;
+  })//your code here
+}
+
+
+
+// 7 kyu:  
+
+//JavaScript Arrays support a filter function (starting in JavaScript 1.6). Use the filter functionality to complete the function given.
+
+// The solution would work like the following:
+
+// getEvenNumbers([2,4,5,6]) // should == [2,4,6]
+
+function getEvenNumbers(numbersArray){
+  // return an even number in an array
+  return numbersArray.filter(function(elem, index){
+    return elem%2 === 0
+  })
+}
+
+//8 Kyu
+//Complete the function that calculates the area of the red square, when the length of the circular 
+// arc A is given as the input. Return the result rounded to two decimals.
+
+// Note: use the π value provided in your language (Math::PI, M_PI, math.pi, etc)
+
+function squareArea(A){
+  let rad = Number(2*A/Math.PI);
+  let squareArea = Number((rad*rad).toFixed(2));
+  return squareArea;
+}
+
+
+
+
+// 7kyu Square every digit
+
+//Instructions: Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+//For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+
+//Note: The function accepts an integer and returns an integer
+
+
+
+
+function squareDigits(num){
+  // Before splitting the number, we have to convert it into a string as the .split function works with strings
+  let numStr = num.toString();
+  let arr = numStr.split('');
+  // once the string was split into an array, we us the .map method to **2
+  let newArr = arr.map((item) => {
+    return item**2
+  });
+  // once new array is created, newArr => we join it into a new string 
+  let newNum = newArr.join('');
+  //finally, conver the string back into a number
+  return Number(newNum)
+}
+
+// 8kyu Square(n) Sums
+
+//Instructions: Complete the square sum function so that it squares each number passed into it and then sums the results together.
+
+//For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9.
+
+function squareSum(numbers){
+  let newArr = numbers.map((item)=>{
+    return item**2
+  });
+  let newNew = newArr.reduce((sum,items)=>{
+    return sum+=items
+  }, 0);
+  return newNew
+}
