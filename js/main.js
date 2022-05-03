@@ -284,3 +284,72 @@ function bmi(weight, height) {
       return 'Obese'
     }
   }
+
+
+// 8 kyu - Will there be enough space?
+
+// The Story:
+// Bob is working as a bus driver. However, he has become extremely popular amongst the city's residents. With so many passengers wanting to get aboard his bus, he sometimes has to face the problem of not enough space left on the bus! He wants you to write a simple program telling him if he will be able to fit all the passengers.
+
+// Task Overview:
+// You have to write a function that accepts three parameters:
+
+// cap is the amount of people the bus can hold excluding the driver.
+// on is the number of people on the bus excluding the driver.
+// wait is the number of people waiting to get on to the bus excluding the driver.
+// If there is enough space, return 0, and if there isn't, return the number of passengers he can't take.
+
+// Usage Examples:
+// cap = 10, on = 5, wait = 5 --> 0 # He can fit all 5 passengers
+// cap = 100, on = 60, wait = 50 --> 10 # He can't fit 10 of the 50 waiting
+
+function enough(cap, on, wait) {
+    let diff = cap - on
+    if (wait>diff){
+      return wait-diff
+    }else{
+      return 0
+    }
+  }
+
+
+function divisorCount(int){
+    let arr = []
+    for(i=1; i<=int; i++){
+        arr += arr[i];
+        console.log(arr);
+
+    }
+}
+
+divisorCount (5)
+
+// 8 kyu - Convert number to reversed array of digits
+
+// Convert number to reversed array of digits
+// Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+
+// Example:
+// 348597 => [7,9,5,8,4,3]
+// 0 => [0]
+
+function digitize(n){
+  //turned the n to a str to allow for split
+  let str = n.toString()
+  //once split into an array, map method will convert all the elements back into numbers, before reversing
+  let arr = str.split('').map(element => Number(element)).reverse()
+  //return for result
+  return arr
+}
+
+
+// 8 kyu  - Binary to Decimal
+
+// Complete the function which converts a binary number (given as a string) to a decimal number.
+// eg. convert "1001001" to 73
+
+
+function binToDec(bin){
+  let newNum = parseInt(bin,2);
+  return newNum
+}
