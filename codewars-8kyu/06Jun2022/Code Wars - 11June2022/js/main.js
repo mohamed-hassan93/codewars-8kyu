@@ -34,3 +34,4 @@ function getAverage(marks){
   let ave = sum/marks.length;
   return Number(Math.floor(ave))
 }
+
