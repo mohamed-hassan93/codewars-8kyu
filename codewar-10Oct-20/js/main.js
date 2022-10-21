@@ -1,21 +1,25 @@
-// 7 kyu - String ends with?
+// 7 kyu - Are the numbers in order?
 
-// Complete the solution so that it returns true if the first argument(string) passed in ends with the 2nd argument (also a string).
+// Are the numbers in order?
+// In this Kata, your function receives an array of integers as input. Your task is to determine whether the numbers are in ascending order. An array is said to be in ascending order if there are no two adjacent integers where the left integer exceeds the right integer in value.
 
-// Examples:
+// For the purposes of this Kata, you may assume that all inputs are valid, i.e. arrays containing only integers.
 
-// solution('abc', 'bc') // returns true
-// solution('abc', 'd') // returns false
+// Note that an array of 0 or 1 integer(s) is automatically considered to be sorted in ascending order since all (zero) adjacent pairs of integers satisfy the condition that the left integer does not exceed the right integer in value.
 
-function solution(str, ending){
-  
-  // create a variable to holds the result of the str ending - endsWith method will determine what the string ending is (ie. ending variable)
-  let result = str.endsWith(ending);
-  
-  //testing conditional - verify if the argument is true
-  if(result === true){
-    return true
-  }else{
-    return false
+// For example:
+
+// inAscOrder([1,2,4,7,19]); // returns true
+// inAscOrder([1,2,3,4,5]); // returns true
+// inAscOrder([1,6,10,18,2,4,20]); // returns false
+// inAscOrder([9,8,7,6,5,4,3,2,1]); // returns false because the numbers are in DESCENDING order
+// N.B. If your solution passes all fixed tests but fails at the random tests, make sure you aren't mutating the input array.
+
+function inAscOrder(arr) {
+  let second_index;
+for(let i = 0; i < arr.length; i++){
+    second_index = i + 1;
+    if(arr[second_index] - arr[i] < 0) return false;
   }
+  return true;
 }
