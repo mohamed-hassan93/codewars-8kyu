@@ -19,7 +19,9 @@ function inAscOrder(arr) {
   let second_index;
 for(let i = 0; i < arr.length; i++){
     second_index = i + 1;
-    if(arr[second_index] - arr[i] < 0) return false;
-  }
+    if(arr[second_index] - arr[i] < 0){
+      return false;
+    }
   return true;
+  }
 }
